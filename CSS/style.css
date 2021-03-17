@@ -1,0 +1,225 @@
+:root{
+    /*COLORES*/
+    --primario: #9c27b0;
+    --primarioOscuro: #89119d;
+    --secundario: #ffce00;
+    --secundarioOscuro: rgb(233,287,2);
+    --blanco:#fff;
+    --negro:#000;
+    /*FUENTE PRINCIPAL*/
+    --fuentePrincipal:'Staatliches', cursive;
+}
+
+/* apply a natural box layout model to all elements, 
+but allowing components to change */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  /*GLOBALES*/
+body{
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5; /*Interlineado*/
+
+}
+p{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+h1,h2,h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 3.2rem;
+}
+h3{
+    font-size: 2.4rem;
+}
+
+/*Header*/
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+.header__logo{
+    margin: 3rem 0; /*Eso seria
+    3 rem arriba y abajo y 0 rem a los lados*/
+}
+
+/*FOOTER*/
+.footer{
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__text{
+    text-align: center;
+    font-size: 2.2rem;
+    font-family: var(--fuentePrincipal);
+
+}
+/*NAVEGACION*/
+.navegacion{
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+.navegacion__enlace{
+    color: var(--blanco);
+    font-family: var(--fuentePrincipal);
+    font-size: 3rem;
+    /*margin-right: 2rem;
+    Eso era para separar elementos y se le suma
+    .navegacion__enlace:last-of-type{
+        margion-right:0;
+    
+    */
+}
+
+
+
+/*Cambiar color a enlaces cuando haya manito*/
+/*Y cambia de coor el enlace activo*/
+.navegacion__enlace:hover, .navegacion__enlace--activo{
+    color: var(--secundario);
+}
+
+/*GRID*/
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+     .grid{
+         grid-template-columns: repeat(3,1fr);
+     }
+ }
+
+
+/*Productos*/
+
+.producto{
+    background-color: var(--primarioOscuro);
+    padding: 2rem;
+}
+
+.producto__imagen{
+    width: 100%;
+}
+
+/*.producto__informacion{
+    
+}*/
+.producto__nombre{
+    font-size: 4rem;
+}
+.producto__precio{
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+.producto__nombre, .producto__precio{
+    font-family: var(--fuentePrincipal);
+    /*Achicar marger*/
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+/*GRAFICOS*/
+.grafico{
+    min-height: 30rem; /*Altura minima*/
+    background-repeat: no-repeat;/*PARA que no se repita imagen de backg*/
+    /*Pero quedara cortada asi que uso o siguiente para que ocupe todo
+    el espacio*/
+    background-size: cover;
+    grid-column: 1/3;/*Esta se repite por eso aca mas general
+    se repite en grafico camisas y grafico node*/
+}
+.grafico--camisas{
+    background-image: url(/img/grafico1.jpg);
+    grid-row: 2/3;
+}
+.grafico--node{
+    background-image: url(/img/grafico2.jpg);
+    grid-row: 8/9;
+}
+
+@media (min-width: 768px) {
+    .grafico--node{
+        grid-row: 5/6;
+        grid-column: 2/4;
+    }
+ }
+ /*NOSOTROS*/
+ .nosotros{
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+
+ }
+ @media (min-width: 768px) {
+    .nosotros{
+        
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 2rem;
+    }
+  }
+
+
+.nosotros__imagen{
+    grid-row: 1/2;
+    width: 100%;
+}
+@media (min-width: 768px) {
+     .nosotros__imagen{
+         grid-column: 2/3;
+     }
+ }
+
+ /*BLOQUES*/
+ .comprar{
+
+ }
+ .bloques{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+ }
+ @media (min-width: 768px ) {
+      .bloques{
+          grid-template-columns: repeat(4,1fr);
+      }
+  }
+ .bloque{
+    text-align: center;
+ }
+
+ .bloque__titulo{
+    margin: 0;
+ }
+ .bloque__imagen{
+    width: 100%;
+ }
